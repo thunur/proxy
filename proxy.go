@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"flag"
 	"fmt"
-	"github.com/pkg/errors"
 	"github.com/thunur/proxy/cert"
 	"github.com/thunur/proxy/conn"
 	"github.com/thunur/proxy/entity"
@@ -195,7 +194,7 @@ func (proxy *Proxy) Error(net net.Conn, error error) {
 	proxy.delegate.ErrorLog(error)
 	_, _ = net.Write(internalServerErr)
 	if error != nil {
-		fmt.Printf("%+v", errors.WithStack(error))
+		fmt.Printf("%+v\n", error)
 		_, _ = net.Write([]byte(error.Error()))
 	}
 }
