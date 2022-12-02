@@ -1,7 +1,7 @@
-package GoIyov
+package proxy
 
 import (
-	"github.com/nicecp/GoIyov/entity"
+	"github.com/thunur/proxy/entity"
 )
 
 type Delegate interface {

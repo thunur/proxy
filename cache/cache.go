@@ -2,7 +2,7 @@ package cache
 
 import (
 	"crypto/tls"
-	"github.com/nicecp/GoIyov/singleflight"
+	"github.com/thunur/proxy/singleflight"
 	"sync"
 )
 

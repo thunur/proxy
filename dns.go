@@ -1,4 +1,4 @@
-package GoIyov
+package proxy
 
 import (
 	"net"

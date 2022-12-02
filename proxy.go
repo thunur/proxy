@@ -1,14 +1,14 @@
-package GoIyov
+package proxy
 
 import (
 	"context"
 	"crypto/tls"
 	"flag"
 	"fmt"
-	"github.com/nicecp/GoIyov/cert"
-	"github.com/nicecp/GoIyov/conn"
-	"github.com/nicecp/GoIyov/entity"
 	"github.com/pkg/errors"
+	"github.com/thunur/proxy/cert"
+	"github.com/thunur/proxy/conn"
+	"github.com/thunur/proxy/entity"
 	"net"
 	"net/http"
 	"strings"
@@ -32,9 +32,10 @@ var (
 )
 
 var serverCertFlag = flag.Bool("cert", false, "安装server证书,默认不安装")
+
 type Proxy struct {
 	delegate Delegate
-	dns *Dns
+	dns      *Dns
 }
 
 func init() {
@@ -46,7 +47,7 @@ func init() {
 	}
 }
 func New() *Proxy {
-	return &Proxy{delegate: &DefaultDelegate{},dns: &DefaultDns}
+	return &Proxy{delegate: &DefaultDelegate{}, dns: &DefaultDns}
 }
 
 func NewWithDelegate(delegate Delegate) *Proxy {

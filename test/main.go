@@ -1,17 +1,17 @@
 package main
 
 import (
-	"github.com/nicecp/GoIyov"
+	"github.com/thunur/proxy"
 	"net/http"
 	"time"
 )
 
 func main() {
-	proxy := GoIyov.New()
+	p := proxy.New()
 	server := &http.Server{
-		Addr: ":8888",
+		Addr: ":8889",
 		Handler: http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
-			proxy.ServerHandler(rw, req)
+			p.ServerHandler(rw, req)
 		}),
 		ReadTimeout:  30 * time.Second,
 		WriteTimeout: 30 * time.Second,
